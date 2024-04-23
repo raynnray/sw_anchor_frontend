@@ -1,0 +1,107 @@
+{
+    "version": "0.1.0",
+    "name": "anchor_counter",
+    "instructions": [
+        {
+            "name": "initialize",
+            "accounts": [
+                {
+                    "name": "user",
+                    "isMut": true,
+                    "isSigner": true
+                }
+            ],
+            "args": []
+        },
+        {
+            "name": "checkIn",
+            "accounts": [
+                {
+                    "name": "user",
+                    "isMut": true,
+                    "isSigner": true
+                }
+            ],
+            "args": []
+        },
+        {
+            "name": "draw",
+            "accounts": [
+                {
+                    "name": "user",
+                    "isMut": true,
+                    "isSigner": true
+                }
+            ],
+            "args": []
+        },
+        {
+            "name": "claimMushroom",
+            "accounts": [
+                {
+                    "name": "user",
+                    "isMut": true,
+                    "isSigner": true
+                }
+            ],
+            "args": []
+        }
+    ],
+    "events": [
+        {
+            "name": "InitializeEvent",
+            "fields": [
+                {
+                    "name": "signer",
+                    "type": "publicKey",
+                    "index": false
+                },
+                {
+                    "name": "initialized",
+                    "type": "bool",
+                    "index": false
+                }
+            ]
+        },
+        {
+            "name": "CheckInEvent",
+            "fields": [
+                {
+                    "name": "signer",
+                    "type": "publicKey",
+                    "index": false
+                },
+                {
+                    "name": "checkIn",
+                    "type": "u64",
+                    "index": false
+                }
+            ]
+        },
+        {
+            "name": "DrawEvent",
+            "fields": [
+                {
+                    "name": "signer",
+                    "type": "publicKey",
+                    "index": false
+                },
+                {
+                    "name": "draw",
+                    "type": "u64",
+                    "index": false
+                }
+            ]
+        },
+        {
+            "name": "ClaimMushroomEvent",
+            "fields": [
+                {
+                    "name": "signer",
+                    "type": "publicKey",
+                    "index": false
+                }
+            ]
+        }
+    ]
+}
