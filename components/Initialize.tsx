@@ -7,6 +7,7 @@ import * as anchor from "@project-serum/anchor";
 import { FC, useEffect, useState } from "react";
 import idl from "../idl.json";
 import { Button } from "@chakra-ui/react";
+import { ethers } from "ethers";
 
 const PROGRAM_ID = new anchor.web3.PublicKey(
   `CFbwgQJsumwDXmXXDcdE8LiR7TUb7Jay9Q2j6rDvdvPU`
@@ -15,6 +16,12 @@ const PROGRAM_ID = new anchor.web3.PublicKey(
 export interface Props {
   setCounter;
   setTransactionUrl;
+}
+
+function generateRandomSalt() {
+  const randomBytes = ethers.randomBytes(32);
+  const salt = ethers.hexlify(randomBytes);
+  return salt;
 }
 
 export const Initialize: FC<Props> = ({ setCounter, setTransactionUrl }) => {
@@ -41,7 +48,7 @@ export const Initialize: FC<Props> = ({ setCounter, setTransactionUrl }) => {
     const newAccount = anchor.web3.Keypair.generate();
 
     const sig = await program.methods
-      .initialize()
+      .initialize(generateRandomSalt())
       .accounts({
         signer: wallet.publicKey,
       })
@@ -55,7 +62,7 @@ export const Initialize: FC<Props> = ({ setCounter, setTransactionUrl }) => {
     const newAccount = anchor.web3.Keypair.generate();
 
     const sig = await program.methods
-      .checkIn()
+      .checkIn(generateRandomSalt())
       .accounts({
         signer: wallet.publicKey,
       })
@@ -66,7 +73,7 @@ export const Initialize: FC<Props> = ({ setCounter, setTransactionUrl }) => {
     const newAccount = anchor.web3.Keypair.generate();
 
     const sig = await program.methods
-      .draw()
+      .draw(generateRandomSalt())
       .accounts({
         signer: wallet.publicKey,
       })
@@ -77,7 +84,7 @@ export const Initialize: FC<Props> = ({ setCounter, setTransactionUrl }) => {
     const newAccount = anchor.web3.Keypair.generate();
 
     const sig = await program.methods
-      .claimMushroom()
+      .claimMushroom(generateRandomSalt())
       .accounts({
         signer: wallet.publicKey,
       })

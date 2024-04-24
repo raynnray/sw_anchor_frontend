@@ -6,45 +6,65 @@
             "name": "initialize",
             "accounts": [
                 {
-                    "name": "user",
+                    "name": "signer",
                     "isMut": true,
                     "isSigner": true
                 }
             ],
-            "args": []
+            "args": [
+                {
+                    "name": "salt",
+                    "type": "string"
+                }
+            ]
         },
         {
             "name": "checkIn",
             "accounts": [
                 {
-                    "name": "user",
+                    "name": "signer",
                     "isMut": true,
                     "isSigner": true
                 }
             ],
-            "args": []
+            "args": [
+                {
+                    "name": "salt",
+                    "type": "string"
+                }
+            ]
         },
         {
             "name": "draw",
             "accounts": [
                 {
-                    "name": "user",
+                    "name": "signer",
                     "isMut": true,
                     "isSigner": true
                 }
             ],
-            "args": []
+            "args": [
+                {
+                    "name": "salt",
+                    "type": "string"
+                }
+            ]
         },
         {
             "name": "claimMushroom",
             "accounts": [
                 {
-                    "name": "user",
+                    "name": "signer",
                     "isMut": true,
                     "isSigner": true
                 }
             ],
-            "args": []
+            "args": [
+                {
+                    "name": "salt",
+                    "type": "string"
+                }
+            ]
         }
     ],
     "events": [
@@ -57,8 +77,8 @@
                     "index": false
                 },
                 {
-                    "name": "initialized",
-                    "type": "bool",
+                    "name": "salt",
+                    "type": "string",
                     "index": false
                 }
             ]
@@ -72,8 +92,8 @@
                     "index": false
                 },
                 {
-                    "name": "checkIn",
-                    "type": "u64",
+                    "name": "salt",
+                    "type": "string",
                     "index": false
                 }
             ]
@@ -87,8 +107,8 @@
                     "index": false
                 },
                 {
-                    "name": "draw",
-                    "type": "u64",
+                    "name": "salt",
+                    "type": "string",
                     "index": false
                 }
             ]
@@ -99,6 +119,11 @@
                 {
                     "name": "signer",
                     "type": "publicKey",
+                    "index": false
+                },
+                {
+                    "name": "salt",
+                    "type": "string",
                     "index": false
                 }
             ]
